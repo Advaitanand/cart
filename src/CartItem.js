@@ -1,6 +1,15 @@
 import React from 'react'
-
+import './index.css'
 class CartItem extends React.Component {
+    constructor (){
+        super()
+        this.state = {
+            price: 999,
+            title: 'Phone',
+            qty: 1,
+            img: ''
+        }
+    }
     render(){
         return(
             <div className="cart-item">
@@ -13,6 +22,9 @@ class CartItem extends React.Component {
                     <div style={{ color: '#777'}}>Qty: 1</div>
                     <div className="cart-item-actions">
                         {/* Buttons */}
+                        <img alt="increase" className="action-icons" src="https://image.flaticon.com/icons/png/512/992/992651.png" />
+                        <img alt="decrease" className="action-icons" src="https://image.flaticon.com/icons/png/512/992/992683.png" />
+                        <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/png/512/3096/3096673.png" />
                     </div>
                 </div>
             </div>

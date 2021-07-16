@@ -17,11 +17,12 @@ body {
 }
 
 .action-icons {
-  height: 25px;
-  width: 25px;
+  margin-top: 5px;
+  height: 15px;
+  width: 15px;
   margin-right: 10px;
 }
 
-.action-icon:hover {
+.action-icons:hover {
   cursor: pointer;
 }
