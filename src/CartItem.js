@@ -1,31 +1,9 @@
 import React from 'react'
 import './index.css'
 class CartItem extends React.Component {
-    increaseQuantitiy = () => {
-
-        // Form 1 of calling set state
-        // React will do shallow merging
-
-        // this.setState({
-        //     qty: this.state.qty + 1
-        // })
-
-        // Form 2 - if prev state required, use this.
-
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty + 1
-            }
-        })
-
-    }
-    decreaseQuantitiy = () => {
-        this.setState({
-            qty: this.state.qty - 1 < 0 ? 0 : this.state.qty - 1
-        })
-    }
 
     render(){
+
         const{price, title, qty} = this.props.product;
         return(
             <div className="cart-item">
@@ -42,13 +20,13 @@ class CartItem extends React.Component {
                             alt="increase" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/png/512/992/992651.png" 
-                            onClick={this.increaseQuantitiy}
+                            onClick={() => this.props.onIncreaseQuantity(this.props.product)}  
                         />
                         <img 
                             alt="decrease" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/png/512/992/992683.png" 
-                            onClick={this.decreaseQuantitiy}
+                            onClick={() => this.props.onDecreaseQuantity(this.props.product)}
                         />
                         <img 
                             alt="delete" 
