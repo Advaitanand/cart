@@ -1,7 +1,7 @@
 import React from 'react'
 import Cart from './Cart'
 import Navbar from './Navbar';
-
+import Footer from './Footer'
 
 class App extends React.Component {
   
@@ -13,21 +13,21 @@ class App extends React.Component {
           price: 99,
           title: 'Watch',
           qty: 1,
-          img: '',
+          img: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0Y2h8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
           id: 1
         },
         {
           price: 999,
           title: 'Mobile Phone',
           qty: 1,
-          img: '',
+          img: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW9iaWxlJTIwcGhvbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
           id: 2
         },
         {
           price: 9999,
           title: 'Laptop',
           qty: 1,
-          img: '',
+          img: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
           id: 3
         }
       ]
@@ -76,6 +76,16 @@ class App extends React.Component {
     return count
   }
 
+  getCartTotal = () => {
+    const { products } = this.state
+    let cartTotal = 0;
+
+    products.map((product) => {
+      cartTotal += product.price*product.qty
+    })
+    return cartTotal
+  }
+
   render(){
     const { products } = this.state
     return (
@@ -87,6 +97,7 @@ class App extends React.Component {
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDelete={this.handleDeleteProduct}
         />
+        <div style={ {fontSize:20, padding: 10} }>TOTAL: {this.getCartTotal()}</div>
       </div>
     );
   }

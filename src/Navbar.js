@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Navbar = (props) => {
+        
         return(
             <div style={styles.nav}>
                 <div style={styles.cartIconContainer}>
